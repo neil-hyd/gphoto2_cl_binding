@@ -31,6 +31,12 @@ namespace gphoto2_cl_binding
         public Camera(string m, string p, bool verbose = false)
         {
             model = m;
+            if (p == null || p == "")
+            {
+                var split = m.Split(' ');
+                if (split.Length > 0) p = split[split.Length - 1];
+            }
+
             port = p;
             this.verbose = verbose;
         }
